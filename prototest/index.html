@@ -1,0 +1,38 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css">
+  <script>
+  function combine() {
+  var input1 = $('#input1').val();
+  var input2 = $('#input2').val();
+  if (isNaN(input1)) {
+    if (isNaN(input2)) {
+  $('#num1').text(input1 + " " + input2);
+}
+else {
+  $('#num1').text('Please type in both the same type of variable')
+}
+  }
+  else {
+  parseInt(input1, 10)
+  parseInt(input2, 10)
+  $('#num1').text(input1.toString() + input2.toString())
+}
+}
+$(document).keydown(function() {
+  if (event.which == 13) {
+    combine();
+  }
+});
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+    <input type="text" id="input1">
+    <input type="text" id="input2">
+  <button class="btn btn-primary" onclick="combine()">Combine</button>
+  <h4 id="num1"></h4>
+  </div>
+</body>
+</html>

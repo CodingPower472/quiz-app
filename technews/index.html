@@ -1,0 +1,46 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://bootswatch.com/paper/bootstrap.min.css">
+  <title>News website</title>
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <script>
+  function n5vsn6hide() {
+    $('body').append("<button id='n5-vs-n6-btn' class='btn btn-success' onclick='n5vsn6show()'>Show Nexus 5 review</button>'")
+    $('#n5-vs-n6-btn').text('Show Nexus 5 review')
+    console.log('Nexus 5 review hidden!')
+  }
+  function n5vsn6show() {
+  console.log('Nexus 5 review shown!');
+  $('#n5vsn6').show();
+  }
+  $(document).keydown(function() {
+    if (event.which == 83) {
+      n5vsn6show();
+    }
+  });
+  </script>
+</head>
+<body>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button onclick="location.href='../index.html'" class="btn btn-success navbar-btn">Back to main page</button>
+      </div>
+    </div>
+  </nav>
+<div class="container-fluid">
+  <div class="jumbotron" id="n5vsn6">
+    <h1>Nexus 5 review</h1>
+    <p>Can the last-generation Nexus 5 take out this year's Nexus 6?</p>
+    <button class="btn btn-primary" onclick="location.href='stories/n5-vs-n6.html'">Learn more</button>
+    <button class="btn btn-danger" onclick="n5vsn6hide()" id="n5-vs-n6-btn">Hide this article</button>
+  </div>
+  <div class="jumbotron">
+    <h1>Chromebook C720 i3 review</h1>
+    <p>Can the low-end Windows market win over the Chromebook C720 i3?</p>
+  </div>
+</div>
+</body>
+</html>

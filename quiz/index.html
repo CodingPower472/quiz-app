@@ -1,0 +1,54 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script>
+$(document).ready(function() {
+  var questions_correct = 0;
+  var questions = ["In JavaScript, which keyword declares a new variable?", "In HTML, how do you make a paragraph?"];
+  var answers = ["var", "<p>"];
+  var question_number = 0;
+  $(".questions").text(questions[question_number]);
+  $('#submit').click(function () {
+    var input = $('#q1').val();
+    if (answers[question_number] == input) {
+      $('h1').text('Correct!');
+      $('#q1').val('');
+      question_number++;
+    }
+    else {
+      $('h1').text('Incorrect!')
+      $('#q1').val('')
+    }
+    $(".questions").text(questions[question_number]);
+  });
+  $(document).keydown(function() {
+    if (event.which == 13) {
+    var input = $('#q1').val();
+    if (answers[question_number] == input) {
+      $('#h2').text('Correct!');
+      $('#q1').val('');
+      question_number++;
+      questions_correct++;
+      $('#h1').text(answers_correct);
+    }
+    else {
+      $('#h2').text('Incorrect!')
+      $('#q1').val('')
+      $('#h1').text(answers_correct)
+    }
+  }
+    $(".questions").text(questions[question_number]);
+  });
+});
+</script>
+</head>
+<body>
+  <div class="container-fluid">
+  <h4 class="questions">Which keyword declares a variable in JavaScript?</h4>
+  <input type="text" id="q1">
+  <button id="submit" class="btn btn-primary">Submit</button>
+  <h1 id="h2"></h1>
+  <h1 id="h1"></h1>
+</div>
+</body>

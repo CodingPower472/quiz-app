@@ -13,7 +13,13 @@ $(document).ready(function() {
     if (answers[question_number] == input) {
       $('body').append('<h1>Correct</h1>')
       $('#q1').val('');
+      if (questions.length < question_number) {
       question_number++;
+    }
+    else {
+      $('.container-fluid').hide();
+      alert('Congrats! You finished!')
+    }
     }
     else {
       $('body').append('<h1>Incorrect</h1>')
@@ -22,7 +28,7 @@ $(document).ready(function() {
     var questions_correct = 0;
     $(".questions").text(questions[question_number]);
   });
-  $(document).keydown(function() {
+  $('#submit').keydown(function() {
     if (event.which == 13) {
     var input = $('#q1').val();
     if (answers[question_number] == input) {

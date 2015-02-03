@@ -4,22 +4,22 @@
 <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 <script>
 $(document).ready(function() {
-  var questions_correct = 0;
-  var questions = ["In JavaScript, which keyword declares a new variable?", "In HTML, how do you make a paragraph?"];
-  var answers = ["var", "<p>"];
+  var questions = ["In JavaScript, which keyword declares a new variable?", "In HTML, how do you make a paragraph?", "In CSS, what single character specifies and id?"];
+  var answers = ["var", "<p>", "#"];
   var question_number = 0;
   $(".questions").text(questions[question_number]);
   $('#submit').click(function () {
     var input = $('#q1').val();
     if (answers[question_number] == input) {
-      $('h1').text('Correct!');
+      $('body').append('<h1>Correct</h1>')
       $('#q1').val('');
       question_number++;
     }
     else {
-      $('h1').text('Incorrect!')
+      $('body').append('<h1>Incorrect</h1>')
       $('#q1').val('')
     }
+    var questions_correct = 0;
     $(".questions").text(questions[question_number]);
   });
   $(document).keydown(function() {
@@ -50,5 +50,6 @@ $(document).ready(function() {
   <button id="submit" class="btn btn-primary">Submit</button>
   <h1 id="h2"></h1>
   <h1 id="h1"></h1>
+  <noscript>Sorry, you are using a really stupid browser!!! It does not evens support JAVASCRIPT!!!
 </div>
 </body>

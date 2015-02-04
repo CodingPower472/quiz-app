@@ -1,0 +1,13 @@
+{
+  "name": "Protodev",
+  "version": "0.0.0",
+  "homepage": "globalsino.com/protodev",
+  "authors": [
+    "Luke <tech.master.champ@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "polymer": "Polymer/polymer#~0.5.4"
+  }
+}

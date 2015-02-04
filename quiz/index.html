@@ -1,61 +1,65 @@
 <html>
 <head>
-  <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <link rel="import" href="../components/paper-elements/paper-elements.html">
 <script>
 $(document).ready(function() {
-  var questions = ["In JavaScript, which keyword declares a new variable?", "In HTML, how do you make a paragraph?", "In CSS, what single character specifies and id?"];
-  var answers = ["var", "<p>", "#"];
+  var questions = ["In JavaScript, which keyword declares a new variable?", "In HTML, how do you make a paragraph?", "In CSS, what single character specifies an id?", "In JavaScript and CSS, which single character is used to specify a new statement", ""];
+  var answers = ["var", "<p>", "#", ";"];
   var question_number = 0;
+  var questions_number = questions.length - 1;
+  $('body').append('<paper-item flex>Summary:</paper-item>')
+  function submit() {
+    var input = $('paper-input').val();
+    $($('paper-input').focus());
   $(".questions").text(questions[question_number]);
-  $('#submit').click(function () {
-    var input = $('#q1').val();
-    if (answers[question_number] == input) {
-      $('body').append('<h1>Correct</h1>')
-      $('#q1').val('');
-      if (questions.length < question_number) {
+  if (answers[question_number] == input) {
+    $('body').append('<paper-item flex>Correct</paper-item>')
+    $('paper-input').val('');
+    if (questions[question_number+1] != '') {
       question_number++;
     }
     else {
       $('.container-fluid').hide();
-      alert('Congrats! You finished!')
-    }
-    }
-    else {
-      $('body').append('<h1>Incorrect</h1>')
-      $('#q1').val('')
-    }
-    var questions_correct = 0;
-    $(".questions").text(questions[question_number]);
-  });
-  $('#submit').keydown(function() {
-    if (event.which == 13) {
-    var input = $('#q1').val();
-    if (answers[question_number] == input) {
-      $('#h2').text('Correct!');
-      $('#q1').val('');
-      question_number++;
-      questions_correct++;
-      $('#h1').text(answers_correct);
-    }
-    else {
-      $('#h2').text('Incorrect!')
-      $('#q1').val('')
-      $('#h1').text(answers_correct)
+      $('paper-input').hide();
+      $('body').append('<paper-input flex>You are done!</paper-input>')
+      $(document).keydown(function() {
+        if (event.which == 82) {
+          location.reload(true);
+        }
+      });
     }
   }
-    $(".questions").text(questions[question_number]);
+  else {
+    $('body').append('<paper-input flex>Incorrect</paper-input>')
+    $('#q1').val('')
+  }
+  var questions_correct = 0;
+  $(".questions").text(questions[question_number]);
+}
+  $('#submit').click(function () {
+    submit()
+  });
+  $(document).keydown(function() {
+    if (event.which == 13) {
+      submit()
+    }
   });
 });
 </script>
+<style>
+paper-item {
+  font-size:24px;
+}
+</style>
 </head>
 <body>
   <div class="container-fluid">
-  <h4 class="questions">Which keyword declares a variable in JavaScript?</h4>
-  <input type="text" id="q1">
-  <button id="submit" class="btn btn-primary">Submit</button>
-  <h1 id="h2"></h1>
-  <h1 id="h1"></h1>
+  <paper-item class="questions" flex>Which keyword declares a variable in JavaScript?</paper-item>
+  <paper-input type="text">
+  <paper-button raised style="background-color:aqua" onclick="submit()">submit</paper-button>
+  <paper-item flex id="h2"></paper-item>
+  <paper-item flex id="paper-input flex"></paper-item>
   <noscript>Sorry, you are using a really stupid browser!!! It does not evens support JAVASCRIPT!!!
 </div>
 </body>

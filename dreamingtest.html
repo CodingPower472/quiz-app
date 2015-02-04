@@ -1,0 +1,34 @@
+<html>
+<head>
+  <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+  <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+  <title>Test of math.random</title>
+  <script>
+  function submit() {
+  var number = $('input').val();
+  var breakfasts = [];
+  if (number == "") {
+    alert('Please enter something in the input box');
+  }
+  else if (isNaN(number)) {
+    alert('Please enter a valid number')
+  }
+  else if (number > 5) {
+    alert('Please enter in a number that is less than 6')
+  }
+  else {
+    alert(breakfasts[number])
+  }
+}
+$(document).keydown(function() {
+  if (event.which == 13) {
+    submit();
+  }
+});
+  </script>
+</head>
+<body>
+  <div class="container-fluid">
+  <input type="text">
+  <button onclick="submit()" class="btn btn-primary">Submit</button>
+</div>

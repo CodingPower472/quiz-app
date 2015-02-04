@@ -1,3 +1,18 @@
 a {
   font-size:48px;
 }
+
+.float-up {
+  -webkit-animation: floatup 2s linear 0s infinite alternate;
+  animation: floatup 2s linear 0s infinite alternate;
+}
+
+@-webkit-keyframes floatup {
+  from {margin-top: -50px;}
+  to {margin-top: -1px;}
+}
+
+@keyframes floatup {
+  from {margin-top: -50px;}
+  to {margin-top: -0.5px;}
+}
